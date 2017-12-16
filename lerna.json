@@ -2,7 +2,7 @@
   "lerna": "2.0.0-rc.4",
   "version": "7.0.0-beta.35",
   "changelog": {
-    "repo": "babel/babel",
+    "repo": "karimsa/dash-babel",
     "labels": {
       "PR: Spec Compliancy": ":eyeglasses: Spec Compliancy",
       "PR: Breaking Change": ":boom: Breaking Change",
@@ -24,8 +24,7 @@
     }
   },
   "packages": [
-    "packages/*",
-    "codemods/*"
+    "packages/*"
   ],
   "npmClient": "yarn",
   "npmClientArgs": [
