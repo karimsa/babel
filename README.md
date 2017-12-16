@@ -1,4 +1,8 @@
 <p align="center">
+  <h2>This is a fork of babylon to support the syntax for <a href="https://github.com/karimsa/dash-script">dash-script</a>.</h2>
+</p>
+
+<p align="center">
   <a href="https://babeljs.io/">
     <img alt="babel" src="https://raw.githubusercontent.com/babel/logo/master/babel.png" width="546">
   </a>
