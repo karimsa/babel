@@ -98,6 +98,7 @@ export default class ExpressionParser extends LValParser {
     const startPos = this.state.start;
     const startLoc = this.state.startLoc;
     const expr = this.parseMaybeAssign(noIn, refShorthandDefaultPos);
+
     if (this.match(tt.comma)) {
       const node = this.startNodeAt(startPos, startLoc);
       node.expressions = [expr];
@@ -110,8 +111,9 @@ export default class ExpressionParser extends LValParser {
       return this.finishNode(node, "SequenceExpression");
     }
 
-    if (this.match(tt.bang)) {
-      expr.forceEvaluation = true;
+    expr.forceEvaluation = this.match(tt.bang);
+
+    if (expr.forceEvaluation) {
       this.next();
     }
 
@@ -549,6 +551,10 @@ export default class ExpressionParser extends LValParser {
       node.tag = base;
       node.quasi = this.parseTemplate(true);
       return this.finishNode(node, "TaggedTemplateExpression");
+    } else if (this.match(tt.bang)) {
+      base.forceEvaluation = true;
+      this.next();
+      return base;
     } else {
       state.stop = true;
       return base;
