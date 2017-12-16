@@ -111,12 +111,6 @@ export default class ExpressionParser extends LValParser {
       return this.finishNode(node, "SequenceExpression");
     }
 
-    expr.forceEvaluation = this.match(tt.bang);
-
-    if (expr.forceEvaluation) {
-      this.next();
-    }
-
     return expr;
   }
 
