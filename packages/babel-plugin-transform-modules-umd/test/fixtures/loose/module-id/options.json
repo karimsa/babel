@@ -1,7 +1,0 @@
-{
-  "moduleId": "MyLib",
-  "plugins": [
-    "external-helpers",
-    ["transform-modules-umd", { "loose": true }]
-  ]
-}

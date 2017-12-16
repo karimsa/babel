@@ -1,7 +1,0 @@
-{
-  "moduleIds": true,
-  "plugins": [
-    "external-helpers",
-    ["transform-modules-amd", { "loose": true }]
-  ]
-}

@@ -1,2 +1,0 @@
-src/bar.mjs -> lib/bar.mjs
-src/foo.js -> lib/foo.js
