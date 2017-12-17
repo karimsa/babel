@@ -365,7 +365,10 @@ export default class StatementParser extends ExpressionParser {
       this.finishNode(init, "VariableDeclaration");
 
       if (this.match(tt._in) || this.isContextual("of")) {
-        if (init.declarations.length === 1 && !init.declarations[0].init) {
+        if (
+          (init.declarations.length === 1 || init.declarations.length === 2) &&
+          !init.declarations[0].init
+        ) {
           return this.parseForIn(node, init, forAwait);
         }
       }
@@ -746,7 +749,8 @@ export default class StatementParser extends ExpressionParser {
           !(this.match(tt._in) || this.isContextual("of"))
         ) {
           // `const` with no initializer is allowed in TypeScript. It could be a declaration `const x: number;`.
-          if (!this.hasPlugin("typescript")) {
+          // also allow `const` with no initializer if we're in a for loop
+          if (!this.hasPlugin("typescript") && !isFor) {
             this.unexpected();
           }
         } else if (
