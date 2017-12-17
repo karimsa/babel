@@ -114,6 +114,7 @@ export default class StatementParser extends ExpressionParser {
 
       case tt._let:
       case tt._const:
+      case tt["_const*"]:
         if (!declaration) this.unexpected(); // NOTE: falls through to _var
 
       case tt._var:

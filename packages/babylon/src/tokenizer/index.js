@@ -1254,6 +1254,9 @@ export default class Tokenizer extends LocationParser {
         // $FlowFixMe
         word += codePointToString(esc);
         chunkStart = this.state.pos;
+      } else if (ch === 42) {
+        ++this.state.pos;
+        break;
       } else {
         break;
       }
