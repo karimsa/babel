@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -x
 
 git pull git@github.com:babel/babel.git master
 
