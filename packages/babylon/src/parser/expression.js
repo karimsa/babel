@@ -395,7 +395,10 @@ export default class ExpressionParser extends LValParser {
       node.argument = expr;
       this.checkLVal(expr, undefined, undefined, "postfix operation");
       this.next();
-      expr = this.finishNode(node, "UpdateExpression");
+      expr = this.finishNode(
+        node,
+        node.operator === "?!" ? "UnaryExpression" : "UpdateExpression",
+      );
     }
     return expr;
   }

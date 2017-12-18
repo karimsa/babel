@@ -601,6 +601,8 @@ export default class Tokenizer extends LocationParser {
     if (next === charCodes.questionMark) {
       // '??'
       this.finishOp(tt.nullishCoalescing, 2);
+    } else if (next === charCodes.exclamationMark) {
+      this.finishOp(tt.nullish, 2);
     } else if (
       next === charCodes.dot &&
       !(next2 >= charCodes.digit0 && next2 <= charCodes.digit9)
